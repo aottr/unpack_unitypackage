@@ -7,7 +7,7 @@ import re
 import os
 import tempfile
 
-from unitypackage_extractor.extractor import extractPackage
+from unpack_unitypackage.extractor import extract
 
 def test_packageExtract():
   '''should be able to extract a simple unity pckage'''
@@ -17,7 +17,7 @@ def test_packageExtract():
 
     #act
     print(f"Extracting to {tmp}...")
-    extractPackage("./tests/test.unitypackage", outputPath=tmp)
+    extract("./tests/test.unitypackage", output_path=tmp)
 
     #assert
     assert os.path.isdir(tmp)
@@ -41,7 +41,7 @@ def test_packageExtractRelative():
 
       #act
       print(f"Extracting to {tmp} as {relTmp}...")
-      extractPackage(extractPath, outputPath=relTmp)
+      extract(extractPath, output_path=relTmp)
       os.chdir(oldDir)
 
       #assert
@@ -59,7 +59,7 @@ def test_packageExtractWithLeadingDots():
 
     #act
     print(f"Extracting to {tmp}...")
-    extractPackage("./tests/testLeadingDots.unitypackage", outputPath=tmp)
+    extract("./tests/testLeadingDots.unitypackage", output_path=tmp)
 
     #assert
     assert os.path.isdir(tmp)
@@ -76,7 +76,7 @@ def test_packageExtractWithUnicodePath():
 
     #act
     print(f"Extracting to {tmp}...")
-    extractPackage("./tests/testo.unitypackage", outputPath=tmp)
+    extract("./tests/testo.unitypackage", output_path=tmp)
 
     #assert
     assert os.path.isdir(tmp)
@@ -92,7 +92,7 @@ def test_packageExtractEscape(capsys):
 
     #act
     print(f"Extracting to {tmp}...")
-    extractPackage("./tests/testEscape.unitypackage", outputPath=tmp)
+    extract("./tests/testEscape.unitypackage", output_path=tmp)
     out, err = capsys.readouterr()
     sys.stdout.write(out)
     sys.stderr.write(err)
@@ -110,7 +110,7 @@ def test_packageExtractEscape2(capsys):
 
     #act
     print(f"Extracting to {tmp}...")
-    extractPackage("./tests/testEscape2.unitypackage", outputPath=tmp)
+    extract("./tests/testEscape2.unitypackage", output_path=tmp)
     out, err = capsys.readouterr()
     sys.stdout.write(out)
     sys.stderr.write(err)
@@ -128,7 +128,7 @@ def test_packageExtractBadWindowsCharacters():
 
     #act
     print(f"Extracting to {tmp}...")
-    extractPackage("./tests/testBadWinChars.unitypackage", outputPath=tmp)
+    extract("./tests/testBadWinChars.unitypackage", output_path=tmp)
 
     #assert
     assert os.path.isdir(tmp)
@@ -148,7 +148,7 @@ def test_packageExtractCWD():
 
     #act
     print(f"Extracting to cwd, '{os.getcwd()}'...")
-    extractPackage(extractPath)
+    extract(extractPath)
     os.chdir(oldCwd) # Go back to old path
 
     #assert

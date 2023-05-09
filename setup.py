@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='unitypackage_extractor',
+    name='unpack_unitypackage',
     version='1.1.0',
     description='Extractor for .unitypackage files',
     long_description=open('README.md', 'r').read(),
@@ -25,5 +25,5 @@ setup(
         'tarsafe>=0.0.2',
     ],
     keywords='untiy unity3d unitypackage extract tar extractor',
-    packages=['unitypackage_extractor']
+    packages=['unpack_unitypackage']
 )

@@ -24,10 +24,11 @@ Extract your .unitypackage
 * From the command line `python -m unitypackage_extractor [path/to/your/package.unitypackage] (optional/output/path)`
 
 * OR in your Python file:
-```python
-from unitypackage_extractor.extractor import extractPackage
 
-extractPackage("path/to/your/package.unitypackage", outputPath="optional/output/path")
+```python
+from unpack_unitypackage.extractor import extract
+
+extract("path/to/your/package.unitypackage", output_path="optional/output/path")
 ```
 
 ## For Enterprise

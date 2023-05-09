@@ -14,3 +14,4 @@ venv64/
 .cache/
 extractor.spec
 tmp-requirements.txt
+.idea
